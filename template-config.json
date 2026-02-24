@@ -1,0 +1,23 @@
+{
+  "_comment": "修改此檔案中的網站名稱與連結後，執行 node apply-template.js 即可產生客製化網站（輸出至 output 資料夾）",
+  "SITE_NAME": "Slots Myan",
+  "SITE_NAME_SHORT": "SlotsMyan",
+  "SITE_DOMAIN": "slotsmyan.com",
+  "SITE_URL": "https://slotsmyan.com",
+  "SITE_LOGO_ALT": "Slots Myan Logo",
+  "GA_ID": "G-GY7Z5K2Q53",
+  "LINK_MYANCASINO": "https://myancasino.com/",
+  "LINK_MYANCASINO_BEST": "https://myancasino.com/best-online-casino-sites-myanmar.html",
+  "LINK_INYA7": "https://www.inya7.co/m/home?affiliateCode=seom1102",
+  "LINK_BURMA777": "https://www.burma777.info/m/home?affiliateCode=seom1202",
+  "LINK_MMKBURMA": "https://www.mmkburma.net/m/home?affiliateCode=seom1302",
+  "LINK_MARHAR777": "https://www.marhar777.net/m/home?affiliateCode=seom1402",
+  "LINK_POPA777": "https://www.popa777.net/m/home?affiliateCode=seom1502",
+  "LINK_SHWECASINO99": "https://shwecasino99.com",
+  "LINK_MYANSLOTSAPP": "https://myanslotsapp.com",
+  "LINK_MYANBETS": "https://myanbets.com/",
+  "LINK_WINKYAT99": "https://winkyat99.com/",
+  "PARTNER_MYANCASINO": "MyanCasino",
+  "PARTNER_SHWECASINO99": "ShweCasino99",
+  "PARTNER_MYANSLOTSAPP": "MyanSlotsApp"
+}

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="my-MM">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{GA_ID}}"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{GA_ID}}');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO TITLE & DESCRIPTION -->
+    <title>{{SITE_NAME}} (မြန်မာစလော့) 🎰 အကောင်းဆုံး အွန်လိုင်းစလော့ ဘောနပ်စ်များနှင့် အခမဲ့ဂိမ်းများ</title>
+    <meta name="description" content="မြန်မာကစားသူများအတွက် အကောင်းဆုံး အွန်လိုင်းစလော့ဘောနပ်စ်များ၊ အခမဲ့ဖရီးစပင်များနှင့် စိတ်လှုပ်ရှားဖွယ် စလော့ဂိမ်းများကို {{SITE_NAME}} တွင် ရယူပါ။">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{SITE_URL}}/">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="my-MM" href="{{SITE_URL}}/">
+    <link rel="alternate" hreflang="x-default" href="{{SITE_URL}}/">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.ico">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Admitad 聯盟行銷驗證 -->
+    <meta name="verify-admitad" content="9da73c584d" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{SITE_NAME}} | အကောင်းဆုံး စလော့ဘောနပ်စ်များ &amp; Free Spins">
+    <meta property="og:description" content="မြန်မာကစားသူများအတွက် အကောင်းဆုံး အွန်လိုင်းစလော့ဂိမ်းများနှင့် သီးသန့်ပရိုမိုးရှင်းများကို ရယူပါ။">
+    <meta property="og:url" content="{{SITE_URL}}/">
+    <meta property="og:site_name" content="{{SITE_NAME}}">
+    <meta property="og:image" content="{{SITE_URL}}/assets/logo/Myan-slot-logo.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{SITE_NAME}} | အကောင်းဆုံး စလော့ဘောနပ်စ်များ">
+    <meta name="twitter:description" content="မှန်ကန်သော Reviews နှင့် အကောင်းဆုံး Slot ပရိုမိုးရှင်းများ။">
+    <meta name="twitter:image" content="{{SITE_URL}}/assets/logo/Myan-slot-logo.webp">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1f2937">
+
+    <!-- Preload Important Assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" as="style">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Existing styles untouched */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        :root {
+            --primary-color: #f59e0b;
+            --secondary-color: #10b981;
+            --background-dark: #1f2937;
+            --background-light: #f3f4f6;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--background-dark); color: white; }
+        .container { max-width: 1200px; }
+        .coin-animation {
+            position: absolute; width: 30px; height: 30px; background-color: gold; border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255,215,0,.8), inset 0 0 5px rgba(255,255,255,.5);
+            animation: coin-fall 1s ease-out forwards; pointer-events: none; z-index: 50;
+        }
+        .coin-animation::before { content: '💰'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+        @keyframes coin-fall {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) scale(.5); opacity: 0; }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background-color: var(--secondary-color); border-radius: 4px; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease-in-out; }
+        .faq-question svg { transition: transform .3s ease-in-out; }
+        .faq-question svg.rotate-45 { transform: rotate(45deg); }
+        /* Add scroll margin to sections to prevent them from being covered by the sticky header */
+        section[id] {
+            scroll-margin-top: 5rem; /* Adjust this value based on your header's height */
+        }
+        /* 主頁 Hero 最大張背景圖：用 section 背景圖強制顯示（含手機） */
+        #hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/image/background-image-1.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 768px) {
+            #hero-section { min-height: 50vh; }
+        }
+        /* 改用 section 背景後，避免 img 重複顯示 */
+        #hero-section .hero-bg-image { display: none !important; }
+        /* Top Slots 區大背景圖也用 CSS 背景確保顯示 */
+        #top-slots {
+            background-image: url('assets/image/background-image-2.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #top-slots .hero-bg-image { display: none !important; }
+    </style>
+
+    <!-- JSON-LD SCHEMA (Organization + Website + Breadcrumb + Collection + FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{SITE_NAME}}",
+      "alternateName": "Myanmar Slot Bonuses",
+      "url": "{{SITE_URL}}/",
+      "logo": "{{SITE_URL}}/assets/logo/Myan-slot-logo.webp",
+      "sameAs": [
+        "https://www.facebook.com/",
+        "{{SITE_URL}}/"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{SITE_NAME}}",
+      "url": "{{SITE_URL}}/",
+      "inLanguage": "my-MM"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{SITE_URL}}/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- CollectionPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "{{SITE_NAME}} - Top Online Slot Sites",
+      "description": "Top 5 Myanmar slot sites with trusted reviews and bonuses.",
+      "url": "{{SITE_URL}}/"
+    }
+    </script>
+
+    <!-- FAQPage Schema (Matches Your Current FAQ Exactly) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Slot app ကို APK အဖြစ် download လုပ်ရတာ ဘယ်လိုလုံခြုံသလဲ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Play Store မှာ မထည့်ထားသည့် apk များအတွက် ဖိုင်မူလအရာ၊ version, permission စသည်တို့ကို စစ်ဆေးပြီးမှ သုံးရန်အကြံပြုပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Buffalo (နီလိုက်/နီကျား) slot game ဆိုတာဘာလဲ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buffalo slot သည် သဘာဝအကြောင်းအရာအခြေခံထားပြီး အမြန်ဂိမ်းပုံစံ၊ big win feature များကြောင့် မြန်မာမှာ လူကြိုက်များပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ငါးပစ်ဂိမ်း (fishing game) က real money slot အမျိုးအစားလား?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ဟုတ်ပါတယ် — fishing game သည် skill + luck ပေါင်းစပ်ထားသော slot style ဂိမ်းအမျိုးအစားတစ်ခု ဖြစ်ပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Slot app များကို mobile မှာ တိုက်ရိုက်ကစားလို့ရမလား?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ရပါတယ်။ APK သွင်းပြီး အသုံးပြုသူအများစုက Android ဖုန်းမှတစ်ဆင့် ကစားကြပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "KBZPay / WavePay ဖြင့် ငွေသွင်းနိုင်သလား?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "site/app အလိုက် ကွဲပြားနိုင်သော်လည်း မြန်မာအသုံးပြုသူအများစုက KBZPay / WavePay ကို သုံးလေ့ရှိပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Free spin promotion တွေဟာ တကယ့်သုံးလို့ရသလား?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Promotion များတွင် wagering requirement သတ်မှတ်ချက်များ ပါလေ့ရှိသဖြင့် အသေးစိတ်စည်းကမ်းများကို ဖတ်ရှုရန်လိုပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Slot app တွေကို iOS မှာသုံးနိုင်သေးလား?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "အများအားဖြင့် Android apk အဖြစ်သာ ဝင်ရောက်ကစားနိုင်ပြီး iOS version မရှိသည့်အကြောင်းများစုပါတယ်။"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "{{SITE_NAME}} ဆိုတာဘာကိုခေါ်သလဲ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{SITE_NAME}} ဆိုသည်မှာ မြန်မာနိုင်ငံအတွက် လူကြိုက်များသော slot app download များနှင့် online slot ဆိုဒ်များအား စုပေါင်းခေါ်ဝေါဟာရ ဖြစ်ပါတယ်။"
+          }
+        }
+      ]
+    }
+    </script>
+
+</head>
+
+<body class="min-h-screen">
+    <!-- Header & Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-colors duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <img src="assets/logo/Myan-slot-logo.webp" alt="{{SITE_LOGO_ALT}}" class="h-12 w-auto" fetchpriority="high"/>
+          </div>
+          <nav class="hidden md:flex space-x-4 text-white text-sm">
+            <a href="article.html" class="hover:text-yellow-400 hover:underline">Article</a>
+            <a href="a80.html" class="hover:text-yellow-400 hover:underline">a80</a>
+            <a href="#top-slots" class="hover:text-yellow-400 hover:underline">Top Slots</a>
+            <a href="#shwecasino99" class="hover:text-yellow-400 hover:underline">ShweCasino99</a>
+            <a href="#myanbetapp" class="hover:text-yellow-400 hover:underline">MyanBetApp</a>
+            <a href="#myanslotsapp" class="hover:text-yellow-400 hover:underline">MyanSlotsApp</a>
+            <a href="#nepplay" class="hover:text-yellow-400 hover:underline">NepPlay</a>
+            <a href="#pv991" class="hover:text-yellow-400 hover:underline">PV991</a>
+            <a href="#yz09" class="hover:text-yellow-400 hover:underline">YZ09</a>
+            <a href="#slot-types" class="hover:text-yellow-400 hover:underline">Slot Types</a>
+            <a href="#how-to-play" class="hover:text-yellow-400 hover:underline">How To Play</a>
+            <a href="#faq" class="hover:text-yellow-400 hover:underline">FAQ</a>
+          </nav>
+          <button id="mobile-menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-white text-3xl focus:outline-none">
+            ☰
+          </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+          <nav class="px-2 pt-2 pb-3 space-y-1 bg-gray-800">
+            <a href="article.html" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">Article</a>
+            <a href="a80.html" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">a80</a>
+            <a href="#top-slots" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">Top Slots</a>
+            <a href="#shwecasino99" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">ShweCasino99</a>
+            <a href="#myanbetapp" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">MyanBetApp</a>
+            <a href="#myanslotsapp" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">MyanSlotsApp</a>
+            <a href="#nepplay" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">NepPlay</a>
+            <a href="#pv991" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">PV991</a>
+            <a href="#yz09" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">YZ09</a>
+            <a href="#slot-types" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">Slot Types</a>
+            <a href="#how-to-play" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">How To Play</a>
+            <a href="#faq" class="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium hover:underline">FAQ</a>
+          </nav>
+        </div>
+      </header>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative bg-gray-900 pt-20 py-16 md:py-24 overflow-hidden border-b-4 border-yellow-500">
+            <img src="assets/image/background-image-1.webp" alt="Abstract background with glowing slot machine elements" class="hero-bg-image absolute inset-0 w-full h-full object-cover opacity-30" fetchpriority="high" loading="eager" role="presentation">
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <p class="text-lg font-semibold text-green-400 mb-2">မြန်မာ အွန်လိုင်းဂိမ်း လမ်းညွှန်</p>
+                <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 text-white">
+                    မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး <span class="text-yellow-400">Slot Game ဆိုဒ်များ</span> ({{SITE_NAME}})
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    မြန်မာအသုံးပြုသူများအတွက် လွယ်ကူစွာ အသုံးပြုနိုင်ပြီး ပိုက်ဆံသွင်း/ထုတ် လျှင်မြန်လုံခြုံသော slot game ဆိုဒ်များကို တစ်နေရာတည်းတွင် စုပေါင်းတင်ပြထားပါတယ်။ Bonus များ၊ free spin promotion များနှင့် မိုဘိုင်းမှာ ကစားနိုင်သည့် slot app များအကြောင်းလည်း နှိုင်းယှဉ်ကြည့်ရှုနိုင်ပါသည်။
+                </p>
+                <a href="#top-slots" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 text-lg">
+                    အကောင်းဆုံး Slot ဆိုဒ်များကြည့်ရှုရန်
+                </a>
+                <p class="mt-6 text-gray-400 text-sm">
+                    ကာစီနိုဆိုဒ်အပြည့်အစုံ ဖတ်ရှုလိုပါက <a href="{{LINK_MYANCASINO_BEST}}" class="text-yellow-400 underline hover:text-yellow-300">{{PARTNER_MYANCASINO}} တွင် မြန်မာအတွက် အကောင်းဆုံး ကာစီနိုဆိုဒ်များ</a> ကိုလည်း ကြည့်ရှုနိုင်ပါတယ်။
+                </p>
+            </div>
+            <!-- Interactive background for visual appeal -->
+            <div id="hero-bg" class="absolute inset-0 z-0 opacity-20"></div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="py-16 bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-item p-6 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">1️⃣</div>
+                        <h2 class="text-xl font-bold text-yellow-400 mb-2">လွယ်ကူသော ငွေသွင်း/ထုတ်စနစ်</h2>
+                        <p class="text-gray-300">MMK, KBZPay, WavePay စနစ်များကို ထောက်ပံ့သည့် slot app/ဆိုဒ်များကို ဦးစားပေးရွေးချယ်ထားသည်</p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="benefit-item p-6 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">2️⃣</div>
+                        <h2 class="text-xl font-bold text-yellow-400 mb-2">Promotion & Bonus အများအပြား</h2>
+                        <p class="text-gray-300">Welcome bonus, free spins, daily jackpots စတဲ့ promotion များကို စုစည်းပြသထားသည်</p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="benefit-item p-6 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">3️⃣</div>
+                        <h2 class="text-xl font-bold text-yellow-400 mb-2">မိုဘိုင်း Apk Download & လူကြိုက်များသော Slot အမျိုးအစားများ</h2>
+                        <p class="text-gray-300">Mobile ဖုန်းမှာ တင်၍ကစားနိုင်မည့် apk download များနှင့် “နီလိုက်/နီကျား” (buffalo) ၊ “ငါးပစ်ဂိမ်း” (fishing game) စတဲ့ လူကြိုက်များသော slot အမျိုးအစားများကိုလည်း သုံးသပ်ပြသထားသည်</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Top Affiliate Sites Section -->
+        <section id="top-slots" class="py-16 md:py-20 bg-gray-800 relative section-bg">
+            <img src="assets/image/background-image-2.webp" alt="Abstract background for top sites section" class="hero-bg-image absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="container mx-auto px-4 relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+                    အကောင်းဆုံး မြန်မာစလော့ဂိမ်း ဝက်ဘ်ဆိုဒ် ၆ ခု
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Brand Card 1: a80 - 緬甸第一 Crypto Casino -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#1 a80</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center p-2">
+                                <img src="assets/logo/a80.png" alt="a80 မြန်မာ့နံပါတ်တစ် Crypto Casino logo" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/f59e0b?text=a80'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                a80 သည် မြန်မာနိုင်ငံအတွက် နံပါတ်တစ် Crypto Casino ဖြစ်ပါသည်။ Bitcoin, USDT စသည့် cryptocurrency ဖြင့် ငွေသွင်း/ထုတ်လုပ်နိုင်ပြီး စလော့ဂိမ်းများစွာ ကစားနိုင်ပါသည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Crypto ငွေသွင်း/ထုတ် (BTC, USDT)</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> စလော့ဂိမ်းများစွာ နှင့် Live Casino</li>
+                            </ul>
+                            <a href="a80.html" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">စလော့ဂိမ်းများ ကြည့်ရန်</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand Card 2: Inya7 -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#2 Inya7</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="assets/logo/INYA7.png" alt="Inya7 online slot website logo" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/ffffff?text=Inya7'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Inya7 သည် ထိပ်တန်း အွန်လိုင်းစလော့များ၊ အံဩဖွယ် ဂျက်ပေါ့များ နှင့် ရက်ရောသော အပ်ငွေဘောနပ်စ်များကို ပေးပါသည်။ စတင်ကစားသူများအတွက် အထူးသင့်တော်ပါသည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Deposit Bonus: 100% Match</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Excellent Mobile Experience</li>
+                            </ul>
+                            <a href="{{LINK_INYA7}}" target="_blank" rel="nofollow noopener" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">ယခု ကစားပါ</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand Card 3: Burma777 -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#3 Burma777</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="assets/logo/Burma777.png" alt="Burma777 popular slot games logo" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/ffffff?text=Burma777'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Burma777 သည် လုံခြုံစိတ်ချရမှုနှင့် မြန်ဆန်သော ငွေထုတ်ယူမှုများအတွက် နာမည်ကျော်ကြားသည်။ စလော့နှင့် ငါးပစ်ဂိမ်းများကို အထူးဂရုပြုကစားသူများအတွက်ဖြစ်သည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Fast Withdrawals</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Dedicated Customer Support</li>
+                            </ul>
+                            <a href="{{LINK_BURMA777}}" target="_blank" rel="nofollow noopener" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">ယခု ကစားပါ</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand Card 4: MMKBurm -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#4 MMKBurm</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="assets/logo/MMKBurma.png" alt="MMKBurm online slots and casino" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/ffffff?text=MMKBurm'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                MMKBurma သည် မြန်မာကျပ်ငွေဖြင့် ကစားနိုင်သော စလော့ဂိမ်းများစွာကို ပေးစွမ်းသည်။ လွယ်ကူသော ငွေသွင်း/ထုတ်စနစ်သည် ၎င်း၏ အားသာချက်ဖြစ်သည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Local Currency MMK Support</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Wide Range of Slot Themes</li>
+                            </ul>
+                            <a href="{{LINK_MMKBURMA}}" target="_blank" rel="nofollow noopener" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">ယခု ကစားပါ</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 5: Marhar777 -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#5 Marhar777</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="assets/logo/Mahar777.png" alt="Marhar777 high RTP slots" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/ffffff?text=Marhar777'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Marhar777 သည် ၎င်း၏ကြီးမားသော ပရိုမိုးရှင်းများနှင့် နေ့စဉ် jackpot များကြောင့် ကစားသူများအကြား ရေပန်းစားသည်။ စလော့ပြိုင်ပွဲများတွင် ပါဝင်ယှဉ်ပြိုင်နိုင်ပါသည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Daily Slot Tournaments</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Generous Welcome Package</li>
+                            </ul>
+                            <a href="{{LINK_MARHAR777}}" target="_blank" rel="nofollow noopener" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">ယခု ကစားပါ</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 6: Popa777 -->
+                    <div class="affiliate-card bg-gray-900 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-500/50 transition duration-300 border border-gray-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">#6 Popa777</h3>
+                            <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="assets/logo/Popa777.png" alt="Popa777 slot game provider" class="affiliate-image max-h-full max-w-full object-contain transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/128x64/374151/ffffff?text=Popa777'">
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Popa777 သည် နောက်ဆုံးပေါ်နှင့် ခေတ်မီသော ဗီဒီယိုစလော့ဂိမ်းများကို အာရုံစိုက်ကာ ပုံမှန် အပ်ဒိတ်များ ပြုလုပ်ပေးနေသည်။ ဂိမ်းအသစ်များ ကစားလိုသူများအတွက်ဖြစ်သည်။
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400">
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Latest Video Slots</li>
+                                <li class="flex items-center"><span class="text-green-400 mr-2">✓</span> Mobile-First Design</li>
+                            </ul>
+                            <a href="{{LINK_POPA777}}" target="_blank" rel="nofollow noopener" class="mt-6 w-full flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow-md">
+                                <span class="mr-2">ယခု ကစားပါ</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- a80 - 緬甸第一 Crypto Casino 推廣區塊 -->
+        <section id="a80" class="py-16 md:py-20 bg-gradient-to-b from-amber-900/30 to-gray-900 border-t border-amber-500/50">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">a80</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <div class="inline-block px-4 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-semibold mb-4">မြန်မာ့ နံပါတ်တစ် Crypto Casino</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        a80 - မြန်မာနိုင်ငံအတွက် နံပါတ်တစ် Crypto Casino
+                    </h2>
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-8 border border-amber-500/30">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <strong class="text-yellow-400">a80</strong> သည် မြန်မာနိုင်ငံအတွက် ထိပ်တန်း Crypto Casino ပလက်ဖောင်းတစ်ခုဖြစ်ပါသည်။ Bitcoin, USDT စသည့် cryptocurrency ဖြင့် ငွေသွင်း/ထုတ်လုပ်နိုင်ပြီး လုံခြုံမြန်ဆန်သော ကစားခြင်းအတွေ့အကြုံကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                a80 တွင် Video Slots၊ Classic Slots၊ Buffalo (နီလိုက်/နီကျား)၊ ငါးပစ်ဂိမ်း (Fishing)၊ ဂျက်ပေါ့ စလော့များအပါအဝင် စလော့ဂိမ်းအမျိုးအစားများစွာ ရှိပါသည်။ မိုဘိုင်းနှင့် ဒက်စ်တော့မှ လွယ်ကူစွာ ကစားနိုင်ပြီး ရက်ရောသော welcome bonus နှင့် free spin promotion များကို ခံစားနိုင်ပါသည်။
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                                <a href="a80.html" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">a80 စလော့ဂိမ်းများ ကြည့်ရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ShweCasino99 Promotion Section -->
+        <section id="shwecasino99" class="py-16 md:py-20 bg-gray-900 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <!-- Breadcrumb Navigation -->
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">ShweCasino99</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        ShweCasino99 - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Online Casino နှင့် Slot Game ဆိုဒ်
+                    </h2>
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="{{LINK_SHWECASINO99}}" target="_blank" rel="nofollow noopener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">{{PARTNER_SHWECASINO99}}</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော online casino နှင့် slot game platform တစ်ခုဖြစ်ပါသည်။ မြန်မာကစားသူများအတွက် အထူးဒီဇိုင်းထုတ်ထားသော ဤဆိုဒ်သည် လုံခြုံစိတ်ချရမှု၊ မြန်ဆန်သော ငွေသွင်း/ထုတ်စနစ်နှင့် စိတ်ဝင်စားဖွယ် slot game များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                ShweCasino99 တွင် သင်သည် လူကြိုက်များသော buffalo slot၊ fishing game၊ video slot နှင့် classic slot အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး KBZPay၊ WavePay စသည့် ဒေသတွင်း payment method များကို လွယ်ကူစွာ အသုံးပြုနိုင်စေပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် ShweCasino99 သည် ရက်ရောသော welcome bonus နှင့် free spin promotion များကို ပေးစွမ်းပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော responsive design နှင့် 24/7 customer support service ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="{{LINK_SHWECASINO99}}" target="_blank" rel="nofollow noopener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">ShweCasino99 သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MyanBetApp Promotion Section -->
+        <section id="myanbetapp" class="py-16 md:py-20 bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">MyanBetApp</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        MyanBetApp - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Betting App နှင့် Online Gaming Platform
+                    </h2>
+                    <div class="bg-gray-900 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="https://myanbetapp.com" target="_blank" rel="opener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">MyanBetApp</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော betting app နှင့် online gaming platform တစ်ခုဖြစ်ပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော user-friendly interface၊ မြန်ဆန်သော ငွေသွင်း/ထုတ်စနစ်နှင့် စိတ်ဝင်စားဖွယ် betting options များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                MyanBetApp တွင် သင်သည် လူကြိုက်များသော sports betting၊ live casino games၊ slot games နှင့် virtual sports betting အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး local payment methods များကို လွယ်ကူစွာ အသုံးပြုနိုင်စေပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် MyanBetApp သည် ရက်ရောသော welcome bonus၊ free bet promotions နှင့် loyalty rewards များကို ပေးစွမ်းပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ download လုပ်ပြီး ကစားနိုင်သော app design နှင့် 24/7 customer support service ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="https://myanbetapp.com" target="_blank" rel="opener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">MyanBetApp သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MyanSlotsApp Promotion Section -->
+        <section id="myanslotsapp" class="py-16 md:py-20 bg-gray-900 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">MyanSlotsApp</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        MyanSlotsApp - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Slot Game App နှင့် Online Casino Platform
+                    </h2>
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="{{LINK_MYANSLOTSAPP}}" target="_blank" rel="opener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">{{PARTNER_MYANSLOTSAPP}}</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော slot game app နှင့် online casino platform တစ်ခုဖြစ်ပါသည်။ မြန်မာကစားသူများအတွက် အထူးဒီဇိုင်းထုတ်ထားသော ဤဆိုဒ်သည် လုံခြုံစိတ်ချရမှု၊ မြန်ဆန်သော ငွေသွင်း/ထုတ်စနစ်နှင့် စိတ်ဝင်စားဖွယ် slot games များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                MyanSlotsApp တွင် သင်သည် လူကြိုက်များသော buffalo slot၊ fishing game၊ video slot၊ classic 3-reel slot နှင့် progressive jackpot slots အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး KBZPay၊ WavePay စသည့် ဒေသတွင်း payment method များကို လွယ်ကူစွာ အသုံးပြုနိုင်စေပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် MyanSlotsApp သည် ရက်ရောသော welcome bonus၊ free spin promotions နှင့် daily reload bonuses များကို ပေးစွမ်းပါသည်။ APK download လုပ်ပြီး Android ဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော mobile-optimized design နှင့် responsive customer support ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="{{LINK_MYANSLOTSAPP}}" target="_blank" rel="opener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">MyanSlotsApp သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NepPlay Promotion Section -->
+        <section id="nepplay" class="py-16 md:py-20 bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">NepPlay</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        NepPlay - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Online Gaming Platform နှင့် Casino Games
+                    </h2>
+                    <div class="bg-gray-900 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="https://nepplay.com" target="_blank" rel="opener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">NepPlay</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော online gaming platform နှင့် casino games provider တစ်ခုဖြစ်ပါသည်။ မြန်မာကစားသူများအတွက် အထူးဒီဇိုင်းထုတ်ထားသော ဤဆိုဒ်သည် လုံခြုံစိတ်ချရမှု၊ မြန်ဆန်သော gameplay နှင့် စိတ်ဝင်စားဖွယ် casino games များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                NepPlay တွင် သင်သည် လူကြိုက်များသော live casino games၊ slot machines၊ table games၊ card games နှင့် lottery games အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး လွယ်ကူစွာ ငွေသွင်း/ထုတ်နိုင်သော payment gateway များကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် NepPlay သည် ရက်ရောသော welcome bonus၊ daily bonuses၊ weekly promotions နှင့် VIP rewards များကို ပေးစွမ်းပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော mobile-friendly design၊ high-quality graphics နှင့် professional customer service ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="https://nepplay.com" target="_blank" rel="opener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">NepPlay သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PV991 Promotion Section -->
+        <section id="pv991" class="py-16 md:py-20 bg-gray-900 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">PV991</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        PV991 - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Online Casino Platform နှင့် Betting Site
+                    </h2>
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="https://pv991.com" target="_blank" rel="opener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">PV991</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော online casino platform နှင့် betting site တစ်ခုဖြစ်ပါသည်။ မြန်မာကစားသူများအတွက် အထူးဒီဇိုင်းထုတ်ထားသော ဤဆိုဒ်သည် လုံခြုံစိတ်ချရမှု၊ မြန်ဆန်သော ငွေသွင်း/ထုတ်စနစ်နှင့် စိတ်ဝင်စားဖွယ် gaming options များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                PV991 တွင် သင်သည် လူကြိုက်များသော casino games၊ sports betting၊ live dealer games၊ slot games နှင့် fishing games အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး local payment methods များကို လွယ်ကူစွာ အသုံးပြုနိုင်စေပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် PV991 သည် ရက်ရောသော welcome bonus၊ deposit bonuses၊ cashback offers နှင့် tournament prizes များကို ပေးစွမ်းပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော responsive design၊ smooth gameplay experience နှင့် dedicated customer support team ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="https://pv991.com" target="_blank" rel="opener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">PV991 သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YZ09 Promotion Section -->
+        <section id="yz09" class="py-16 md:py-20 bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-gray-400 max-w-4xl mx-auto">
+                        <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </li>
+                        <li class="text-yellow-400 font-semibold">YZ09</li>
+                    </ol>
+                </nav>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">
+                        YZ09 - မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး Online Gaming နှင့် Casino Entertainment Platform
+                    </h2>
+                    <div class="bg-gray-900 rounded-xl shadow-2xl p-8 border border-gray-700">
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                <a href="https://yz09.com" target="_blank" rel="opener" class="text-yellow-400 hover:text-yellow-300 underline font-semibold">YZ09</a> သည် မြန်မာနိုင်ငံအတွက် ယုံကြည်စိတ်ချရသော online gaming နှင့် casino entertainment platform တစ်ခုဖြစ်ပါသည်။ မြန်မာကစားသူများအတွက် အထူးဒီဇိုင်းထုတ်ထားသော ဤဆိုဒ်သည် လုံခြုံစိတ်ချရမှု၊ မြန်ဆန်သော loading speed နှင့် စိတ်ဝင်စားဖွယ် entertainment options များစွာကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                YZ09 တွင် သင်သည် လူကြိုက်များသော casino games၊ slot machines၊ live casino၊ sports betting နှင့် virtual games အမျိုးအစားများကို ရှာဖွေကစားနိုင်ပါသည်။ ထို့အပြင် ဆိုဒ်သည် မြန်မာကျပ်ငွေ (MMK) ကို ထောက်ပံ့ပြီး လွယ်ကူစွာ ငွေသွင်း/ထုတ်နိုင်သော secure payment systems များကို ပေးစွမ်းပါသည်။
+                            </p>
+                            <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                                စတင်ကစားသူများအတွက် YZ09 သည် ရက်ရောသော welcome packages၊ reload bonuses၊ referral rewards နှင့် exclusive promotions များကို ပေးစွမ်းပါသည်။ မိုဘိုင်းဖုန်းမှတစ်ဆင့် လွယ်ကူစွာ ကစားနိုင်သော mobile app support၊ cutting-edge technology နှင့် round-the-clock customer assistance ကလည်း ကစားသူများ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေပါသည်။
+                            </p>
+                            <div class="mt-8 text-center">
+                                <a href="https://yz09.com" target="_blank" rel="opener" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition duration-200 shadow-md text-lg">
+                                    <span class="mr-2">YZ09 သို့ သွားရောက်ကစားရန်</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Slot Types Section -->
+        <section id="slot-types" class="py-16 md:py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+                    လူကြိုက်များသော Slot Game အမျိုးအစားများ
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Slot Type 1: Buffalo -->
+                    <div class="slot-type-card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold mb-3 text-white">Buffalo (နီလိုက်/နီကျား) Slot</h3>
+                        <p class="text-gray-300 mb-4">
+                            Buffalo slot သည် မြန်မာကစားသူများအကြား အလွန်လူကြိုက်များသော slot အမျိုးအစားတစ်ခုဖြစ်ပြီး big win ၊ multiplier feature ၊ free spin round များကြောင့် အမြန်အနိုင်ရလွယ်ကူပါတယ်။ နီလိုက်/နီကျား theme ကလည်း အံ့ဩဖွယ်ထွက်ဆင်မှုများပေးစွမ်းတဲ့အတွက် မကြာခဏရွေးကစားလေ့ရှိပါတယ်။
+                        </p>
+                        <ul class="text-sm space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Big Win / Multiplier feature များ</li>
+                            <li>Free Spin များ ပုံမှန်ပါဝင်</li>
+                            <li>မြန်မာမှာ လူကြိုက်အများဆုံး slot မျိုးအစား</li>
+                        </ul>
+                    </div>
+
+                    <!-- Slot Type 2: Fishing Game -->
+                    <div class="slot-type-card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold mb-3 text-white">ငါးပစ်ဂိမ်း (Fishing Game Slot)</h3>
+                        <p class="text-gray-300 mb-4">
+                            Fishing game သည် skill + luck ပေါင်းစပ်ထားသော slot style ဂိမ်းဖြစ်ပြီး target ကိုရွေးပြီး ပစ်သလိုကစားရတဲ့အတွက် အက်ရှင်အပြည့်အဝ ရရှိနိုင်ပါတယ်။ မြန်မာကစားသူများအကြား လူကြိုက်အများဆုံး slot မျိုးအစားတစ်ခုဖြစ်ပြီး လောင်းကြေးညှိနိုင်ခြင်းကလည်း အားသာချက်ဖြစ်ပါတယ်။
+                        </p>
+                        <ul class="text-sm space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Target ပစ်သလိုကစားရတဲ့ Action slot</li>
+                            <li>လောင်းကြေးညှိလို့ရ – control ပိုကောင်း</li>
+                            <li>မြန်မာကစားသူများအကြား အရမ်းရေပန်းစား</li>
+                        </ul>
+                    </div>
+
+                    <!-- Slot Type 3: Video/Classic Slots -->
+                    <div class="slot-type-card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold mb-3 text-white">Video Slot / Classic Slot (3-Reel & 5-Reel)</h3>
+                        <p class="text-gray-300 mb-4">
+                            Classic slot (3-reel) မျိုးအစားများက ရိုးရှင်းလွယ်ကူပြီး traditional slot style ကိုကြိုက်တဲ့သူများအတွက် သင့်တော်ပါတယ်။ Video slot (5-reel) မျိုးအစားများမှာတော့ bonus game ၊ free spins ၊ scatter/wild feature များစွာ ပါဝင်လို့ animation ၊ story ၊ theme မျိုးစုံနဲ့ ပိုမိုစိတ်ဝင်စားဖွယ်ကစားနိုင်ပါတယ်။
+                        </p>
+                        <ul class="text-sm space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Classic Slot – ရိုးရှင်းပြီး ပုံမှန်ထိုးသွင်းသလိုကစားနိုင်</li>
+                            <li>Video Slot – Bonus ၊ Free Spin ၊ Scatter/Wild အပြည့်အဝ</li>
+                            <li>Theme / Storyline မျိုးစုံ၊ လူကြိုက်အများ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Play Section -->
+        <section id="how-to-play" class="py-16 md:py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">
+                    စလော့ဂိမ်းများကို ဘယ်လိုကစားမလဲ (အဆင့် ၄ ဆင့်)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-green-500">
+                        <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-green-500 rounded-full text-2xl font-bold text-gray-900">1</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">ဝက်ဘ်ဆိုဒ်တစ်ခု ရွေးပါ</h3>
+                        <p class="text-gray-400">အပေါ်မှ ယုံကြည်စိတ်ချရသော ဝက်ဘ်ဆိုဒ်များထဲမှ တစ်ခုကို ရွေးချယ်ပြီး ဝက်ဘ်ဆိုဒ်သို့ သွားရောက်ပါ။</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-green-500">
+                        <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-green-500 rounded-full text-2xl font-bold text-gray-900">2</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">အကောင့်ဖွင့်ပြီး ငွေသွင်းပါ</h3>
+                        <p class="text-gray-400">မြန်ဆန်လွယ်ကူသော မှတ်ပုံတင်ခြင်းကို ပြီးမြောက်ပြီး သင့်အပ်ငွေဘောနပ်စ်ကို ရယူရန် ငွေသွင်းပါ။</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-green-500">
+                        <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-green-500 rounded-full text-2xl font-bold text-gray-900">3</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">စလော့ဂိမ်းကို ရွေးချယ်ပါ</h3>
+                        <p class="text-gray-400">သင့်စိတ်ကြိုက် ဗီဒီယိုစလော့၊ ဂန္တဝင်စလော့ သို့မဟုတ် ဂျက်ပေါ့စလော့ကို ရှာဖွေပါ။</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-green-500">
+                        <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-green-500 rounded-full text-2xl font-bold text-gray-900">4</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">လှည့်ပြီး အနိုင်ယူပါ</h3>
+                        <p class="text-gray-400">သင့်လောင်းကြေးကို သတ်မှတ်ပြီး "Spin" ခလုတ်ကို နှိပ်လိုက်ပါ။ ပျော်ရွှင်စွာ ကစားပါ။</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pre-FAQ Backlinking Section -->
+        <section id="pre-faq-links" class="py-16 bg-gray-900">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h2 class="text-3xl font-bold text-green-400 mb-6">Slot App များအပြင် Online Casino အကြောင်းလည်း ကြည့်ရှုချင်ပါသလား?</h2>
+                <div class="text-gray-300 space-y-4 text-lg">
+                    <p>
+                        Slot app download, apk, buffalo ၊ fishing slot အမျိုးအစားများအပြင် online casino အကြောင်းကိုလည်း စုစည်းသုံးသပ်ကြည့်လိုသူများအတွက် <a href="{{LINK_MYANCASINO}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">{{PARTNER_MYANCASINO}}</a> တွင် မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး casino ဆိုဒ်များကို အသေးစိတ်ဖော်ပြထားပါတယ်။
+                    </p>
+                    <p>
+                        ထို့အပြင် casino review များကို တစ်နေရာတည်းမှာ သေချာစွာ ကြည့်ရှုလိုသူများအတွက် <a href="{{LINK_MYANCASINO_BEST}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">အကောင်းဆုံး Online Casino ဆိုဒ်များ (မြန်မာ)</a> စာမျက်နှာတွင်လည်း အသေးစိတ်ဖတ်ရှုနိုင်ပါတယ်။
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FAQ Section (Fully updated with all template questions) -->
+        <section id="faq" class="py-16 md:py-20 bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">
+                    မကြာခဏ မေးလေ့ရှိသော မေးခွန်းများ (FAQ)
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-1">
+                            <span>Slot app ကို APK အဖြစ် download လုပ်ရတာ ဘယ်လိုလုံခြုံသလဲ?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-1" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                Play Store မှာ မထည့်ထားသည့် apk များအတွက် ဖိုင်မူလအရာ၊ version, permission စသည်တို့ကို စစ်ဆေးပြီးမှ သုံးရန်အကြံပြုပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-2">
+                            <span>Buffalo (နီလိုက်/နီကျား) slot game ဆိုတာဘာလဲ?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-2" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                Buffalo slot သည် သဘာဝအကြောင်းအရာအခြေခံထားပြီး အမြန်ဂိမ်းပုံစံ၊ big win feature များကြောင့် မြန်မာမှာ လူကြိုက်များပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-3">
+                            <span>ငါးပစ်ဂိမ်း (fishing game) က real money slot အမျိုးအစားလား?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-3" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                ဟုတ်ပါတယ် — fishing game သည် skill + luck ပေါင်းစပ်ထားသော slot style ဂိမ်းအမျိုးအစားတစ်ခု ဖြစ်ပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 (New) -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-4">
+                            <span>Slot app များကို mobile မှာ တိုက်ရိုက်ကစားလို့ရမလား?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-4" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                ရပါတယ်။ APK သွင်းပြီး အသုံးပြုသူအများစုက Android ဖုန်းမှတစ်ဆင့် ကစားကြပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 (New) -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-5">
+                            <span>KBZPay / WavePay ဖြင့် ငွေသွင်းနိုင်သလား?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-5" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                site/app အလိုက် ကွဲပြားနိုင်သော်လည်း မြန်မာအသုံးပြုသူအများစုက KBZPay / WavePay ကို သုံးလေ့ရှိပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 (New) -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-6">
+                            <span>Free spin promotion တွေဟာ တကယ့်သုံးလို့ရသလား?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-6" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                Promotion များတွင် wagering requirement သတ်မှတ်ချက်များ ပါလေ့ရှိသဖြင့် အသေးစိတ်စည်းကမ်းများကို ဖတ်ရှုရန်လိုပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-7">
+                            <span>Slot app တွေကို iOS မှာသုံးနိုင်သေးလား?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-7" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                အများအားဖြင့် Android apk အဖြစ်သာ ဝင်ရောက်ကစားနိုင်ပြီး iOS version မရှိသည့်အကြောင်းများစုပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="bg-gray-900 rounded-lg shadow-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-white hover:bg-gray-700 rounded-lg transition duration-200"
+                                aria-expanded="false" aria-controls="faq-answer-8">
+                            <span>{{SITE_NAME}} ဆိုတာဘာကိုခေါ်သလဲ?</span>
+                            <svg class="w-6 h-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </button>
+                        <div id="faq-answer-8" class="faq-answer px-4">
+                            <p class="py-4 text-gray-300 border-t border-gray-700">
+                                {{SITE_NAME}} ဆိုသည်မှာ မြန်မာနိုင်ငံအတွက် လူကြိုက်များသော slot app download များနှင့် online slot ဆိုဒ်များအား စုပေါင်းခေါ်ဝေါဟာရ ဖြစ်ပါတယ်။
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold text-green-400 mb-6">{{SITE_NAME_SHORT}} ({{SITE_NAME}}) အကြောင်း</h2>
+            <div class="text-gray-300 space-y-4 text-lg">
+                <p>
+                    {{SITE_NAME_SHORT}} သည် မြန်မာနိုင်ငံတွင် လူကြိုက်များသော {{SITE_NAME}}၊ slot app download များနှင့် အွန်လိုင်း slot ဆိုဒ်များအကြောင်း သတင်းအချက်အလက်များကို စုစည်းတင်ပြပေးသော လမ်းညွှန်ဆိုဒ်ဖြစ်သည်။ Apk download လုပ်နိုင်မှု၊ bonus & promotion များ၊ buffalo ၊ fishing မျိုးအစား slot များအကြောင်းတို့ကို အသုံးပြုသူများ လွယ်ကူစွာ နှိုင်းယှဉ်ကြည့်ရှုနိုင်စေဖို့ တစ်နေရာတည်း စုပေါင်းဖော်ပြထားပါတယ်။
+                </p>
+                <p>
+                    ကာစီနိုအကြောင်း ပိုမိုသိလိုသူများအတွက် <a href="{{LINK_MYANCASINO}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">{{PARTNER_MYANCASINO}}</a> သည် မြန်မာနိုင်ငံအတွက် အကောင်းဆုံး online casino လမ်းညွှန်များကိုလည်း တင်ပြပေးထားပါသည်။
+                </p>
+                <p class="text-gray-400 text-base pt-4 border-t border-gray-700 mt-6">
+                    {{SITE_NAME_SHORT}} ({{SITE_NAME}}) သည် ငွေကြေးဝန်ဆောင်မှုမပြုလုပ်ဘဲ၊ သုံးစွဲသူများအတွက် သတင်းအချက်အလက် နှိုင်းယှဉ်ကြည့်ရှုနိုင်ရန်အတွက်သာ ရည်ရွယ်ထားပါတယ်။
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <div class="mb-6">
+                <h2 class="font-bold text-lg text-green-400 mb-3">Useful Links</h2>
+                <div class="space-y-2 text-sm">
+                    <p>Myanmar Online Casino လမ်းညွှန် – <a href="{{LINK_MYANCASINO}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">{{PARTNER_MYANCASINO}}</a></p>
+                    <p>Myanmar Betting အကြံပြုဆိုဒ် – <a href="{{LINK_MYANBETS}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">MyanBets</a></p>
+                    <p>မြန်မာ အွန်လိုင်းဂိမ်း – <a href="{{LINK_WINKYAT99}}" target="_blank" rel="noopener" class="text-yellow-400 underline hover:text-yellow-300">Winkyat99</a></p>
+                </div>
+            </div>
+            <div class="text-sm border-t border-gray-700 pt-6">
+                <p class="mb-4 max-w-2xl mx-auto">
+                    {{SITE_NAME}} သည် မြန်မာနိုင်ငံအတွက် slot app download, apk, buffalo ၊ fishing စတဲ့ slot အမျိုးအစားများနှင့် online slot ဆိုဒ်များအကြောင်း သတင်းအချက်အလက်များကို လမ်းညွှန်ပေးထားသော စာမျက်နှာ ဖြစ်ပါသည်။
+                </p>
+                <p class="mb-2">&copy; 2025 {{SITE_NAME}} ({{SITE_DOMAIN}}). All rights reserved.</p>
+            </div>
+            <p class="text-xs text-gray-400">တာဝန်ယူမှုရှိစွာ ကစားပါ။ စလော့ဂိမ်းများသည် ဖျော်ဖြေရေးသက်သက်သာဖြစ်သည်။</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+    // --- Hero Coin Animation Script ---
+    const heroBg = document.getElementById('hero-bg');
+
+    function createCoin() {
+        const coin = document.createElement('div');
+        coin.className = 'coin-animation';
+        
+        // Randomize starting position (x-axis)
+        const startX = Math.random() * heroBg.offsetWidth;
+        coin.style.left = startX + 'px';
+        coin.style.top = '-50px'; // Start slightly above the viewport
+
+        // Randomize duration and scale slightly for depth effect
+        const duration = 1 + Math.random() * 0.5; // 1.0s to 1.5s
+        coin.style.animationDuration = duration + 's';
+        coin.style.opacity = 0.5 + Math.random() * 0.5; // 0.5 to 1.0
+        
+        heroBg.appendChild(coin);
+
+        // Remove coin after animation ends
+        setTimeout(() => {
+            coin.remove();
+        }, duration * 1000 + 100); // Wait a bit longer than the animation duration
+    }
+
+    // Start a continuous stream of coins (interval can be adjusted)
+    setInterval(createCoin, 300); // New coin every 300ms
+
+    // --- FAQ Accordion Script ---
+    const accordionButtons = document.querySelectorAll('.faq-question');
+    
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Close the currently open accordion item if it exists and is not the one being clicked
+            const currentlyExpandedButton = document.querySelector('.faq-question[aria-expanded="true"]');
+            if (currentlyExpandedButton && currentlyExpandedButton !== button) {
+                currentlyExpandedButton.setAttribute('aria-expanded', 'false');
+                const currentlyExpandedAnswer = document.getElementById(currentlyExpandedButton.getAttribute('aria-controls'));
+                currentlyExpandedAnswer.style.maxHeight = null;
+                currentlyExpandedButton.querySelector('svg').classList.remove('rotate-45');
+            }
+
+            // Toggle the clicked accordion item
+            button.setAttribute('aria-expanded', !isExpanded);
+            const answer = document.getElementById(button.getAttribute('aria-controls'));
+            const icon = button.querySelector('svg');
+            
+            if (!isExpanded) {
+                // Expand
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.classList.add('rotate-45');
+            } else {
+                // Collapse
+                answer.style.maxHeight = null;
+                icon.classList.remove('rotate-45');
+            }
+        });
+    });
+
+    // --- Navbar Scroll & Mobile Menu Script ---
+    const navbar = document.getElementById('navbar');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+    const updateNavbarBg = () => {
+        const isMenuOpen = !mobileMenu.classList.contains('hidden');
+        const isScrolled = window.scrollY > 20;
+
+        if (isScrolled || isMenuOpen) {
+            navbar.classList.add('bg-gray-800');
+            navbar.classList.remove('bg-transparent');
+        } else {
+            navbar.classList.remove('bg-gray-800');
+            navbar.classList.add('bg-transparent');
+        }
+    };
+
+    // Update background on scroll
+    window.addEventListener('scroll', updateNavbarBg);
+
+    // Toggle mobile menu
+    mobileMenuButton.addEventListener('click', () => {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+        updateNavbarBg(); // Update background when menu is toggled
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            updateNavbarBg(); // Update background when menu is closed
+        });
+    });
+    </script>
+</body>
+</html>

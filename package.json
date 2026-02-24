@@ -1,0 +1,12 @@
+{
+  "name": "slotsmyan-seo",
+  "version": "1.0.0",
+  "description": "Slots Myan - Static SEO site template",
+  "private": true,
+  "scripts": {
+    "build": "node apply-template.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
